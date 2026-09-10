@@ -3,6 +3,8 @@ from .planner import ToolCall
 from ..tools.web_search import web_search
 from ..tools.data_analysis import data_analysis
 from ..tools.calculator import calculator
+from ..tools.file_reader import read_file, read_csv, list_directory
+from ..tools.code_analyzer import analyze_python_code, extract_imports, count_complexity
 
 
 class ToolExecutor:
@@ -11,6 +13,7 @@ class ToolExecutor:
             ToolType.WEB_SEARCH: web_search,
             ToolType.DATA_ANALYSIS: data_analysis,
             ToolType.CALCULATOR: calculator,
+            ToolType.FILE_READER: read_file,
         }
 
     async def execute(self, tool_call: ToolCall) -> ToolResult:
